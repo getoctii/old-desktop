@@ -89,17 +89,11 @@ jobs:
         name: octii-desktop-windows-x64.exe
         path: ./dist/octii-desktop-windows-x64.exe
     
-    - name: Install go-msi
-      run: go get github.com/mh-cbon/go-msi
+    - name: Build Inno Installer
+      run: iscc .\windows\Setup.iss
     
-    - name: Add WiX Toolset To PATH
-      run: $env:PATH="$env:PATH;C:\Program Files (x86)\WiX Toolset v3.11\bin"
-
-    - name: Package Windows Installer
-      run: go-msi make --path .\windows\wix.json --msi .\octii.msi --version 0.0.1
-
     - uses: actions/upload-artifact@v2
       name: Upload Windows x64 Installer
       with:
-        name: octii.msi
-        path: ./octii.msi
+        name: Octii Installer
+        path: ./Octii Installer.exe
