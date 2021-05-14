@@ -91,11 +91,6 @@ jobs:
     
     - name: Install go-msi
       run: go get github.com/mh-cbon/go-msi
-
-    - name: Install WiX Toolset
-      uses: crazy-max/ghaction-chocolatey@v1
-      with:
-        args: install wixtoolset
     
     - name: Add WiX Toolset To PATH
       run: $env:PATH="$env:PATH;C:\Program Files (x86)\WiX Toolset v3.11\bin"
