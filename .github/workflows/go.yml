@@ -21,7 +21,18 @@ jobs:
     - name: Build Linux x64
       run: CGO_ENABLED=1 GOARCH="amd64" GOOS="linux" go build -o ./dist/octii-desktop-linux-x64 -v ./main.go 
     - name: Build Windows x64
-      run: CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
+      run: CC="x86_64-w64-mingw32-gcc" CXX="x86_64-w64-mingw32-g++" CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
+  
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.15
+
     - name: Build MacOS x64
       run: CGO_ENABLED=1 GOARCH="amd64" GOOS="darwin" go build -o ./dist/octii-desktop-macos-x64 -v ./main.go
     - name: Build MacOS ARM
