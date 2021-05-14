@@ -20,10 +20,9 @@ jobs:
       run: sudo apt install -y libwebkit2gtk-4.0-dev mingw-w64
     - name: Build Linux x64
       run: CGO_ENABLED=1 GOARCH="amd64" GOOS="linux" go build -o ./dist/octii-desktop-linux-x64 -v ./main.go 
+    - name: Build Windows x64
+      run: CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
     - name: Build MacOS x64
       run: CGO_ENABLED=1 GOARCH="amd64" GOOS="darwin" go build -o ./dist/octii-desktop-macos-x64 -v ./main.go
     - name: Build MacOS ARM
       run: CGO_ENABLED=1 GOARCH="arm64" GOOS="darwin" go build -o ./dist/octii-desktop-macos-arm64 -v ./main.go
-    - name: Build Windows x64
-      run: CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
-
