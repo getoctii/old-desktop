@@ -52,6 +52,9 @@ jobs:
     - name: Package macOS x64
       run: appify -name "Octii" -icon ./assets/Icon.png ./dist/octii-desktop-macos-x64
 
+    - name: Make Executable
+      run: chmod +x Octii.app/Contents/MacOS/Octii.app
+
     - name: Move App Into Folder
       run: mkdir Octii && mv Octii.app Octii
     
@@ -79,3 +82,23 @@ jobs:
       with:
         name: octii-desktop-windows-x64.exe
         path: ./dist/octii-desktop-windows-x64.exe
+    
+    - uses: Install go-msi
+      - run: go get github.com/mh-cbon/go-msi
+
+    - name: Install WiX Toolset
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install wixtoolset
+    
+    - name: Add WiX Toolset To PATH
+      run: $env:PATH="$env:PATH;C:\Program Files (x86)\WiX Toolset v3.11\bin"
+
+    - name: Package Windows Installer
+      run: go-msi make --path .\windows\wix.json --msi .\octii.msi --version 0.0.1
+
+    - uses: actions/upload-artifact@v2
+      name: Upload Windows x64 Installer
+      with:
+        name: octii.msi
+        path: ./octii.msi
