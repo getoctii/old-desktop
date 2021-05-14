@@ -77,6 +77,12 @@ jobs:
     - name: Build Windows x64
       run: $env:CGO_ENABLED=1; $env:GOARCH="amd64"; $env:GOOS="windows"; go build -ldflags="-H windowsgui" -o .\dist\octii-desktop-windows-x64.exe -v .\main.go
 
+    - name: Download rcedit
+      run: Invoke-WebRequest https://github.com/electron/rcedit/releases/download/v1.1.1/rcedit-x64.exe -OutFile rcedit.exe
+    
+    - name: Set Icon
+      run: .\rcedit.exe .\dist\octii-desktop-windows-x64.exe --set-icon .\assets\Icon.ico
+
     - uses: actions/upload-artifact@v2
       name: Upload Windows x64 Build
       with:
