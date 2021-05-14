@@ -61,7 +61,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       name: Upload macOS x64 Package
       with:
-        name: Octii
+        name: Octii macOS x64
         path: ./Octii
   
   build-windows:
@@ -95,5 +95,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       name: Upload Windows x64 Installer
       with:
-        name: Octii Installer
+        name: Octii Windows Installer x64
         path: ./Octii Installer.exe
