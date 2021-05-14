@@ -84,7 +84,7 @@ jobs:
         path: ./dist/octii-desktop-windows-x64.exe
     
     - uses: Install go-msi
-      - run: go get github.com/mh-cbon/go-msi
+      run: go get github.com/mh-cbon/go-msi
 
     - name: Install WiX Toolset
       uses: crazy-max/ghaction-chocolatey@v1
