@@ -46,6 +46,9 @@ jobs:
         name: octii-desktop-macos-x64
         path: ./dist/octii-desktop-macos-x64
     
+    - name: Install Appify
+      run: go get github.com/machinebox/appify
+
     - name: Package macOS x64
       run: appify -name "Octii" -icon ./assets/Icon.png ./dist/octii-desktop-macos-x64
     
