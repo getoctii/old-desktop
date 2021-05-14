@@ -21,7 +21,7 @@ jobs:
     - name: Build Linux x64
       run: CGO_ENABLED=1 GOARCH="amd64" GOOS="linux" go build -o ./dist/octii-desktop-linux-x64 -v ./main.go 
     - name: Build Windows x64
-      run: CC="x86_64-w64-mingw32-gcc" CXX="x86_64-w64-mingw32-g++" CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
+      run: CC="x86_64-w64-mingw32-gcc" CXX="x86_64-w64-mingw32-g++" CGO_ENABLED=1 GOARCH="amd64" GOOS="windows" go build -ldflags="-H windowsgui" -o ./dist/octii-desktop-windows-x64.exe -v ./main.go
   
     - uses: actions/upload-artifact@v2
       name: Upload Linux x64 Build
