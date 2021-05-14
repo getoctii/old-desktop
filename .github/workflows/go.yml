@@ -83,7 +83,7 @@ jobs:
         name: octii-desktop-windows-x64.exe
         path: ./dist/octii-desktop-windows-x64.exe
     
-    - uses: Install go-msi
+    - name: Install go-msi
       run: go get github.com/mh-cbon/go-msi
 
     - name: Install WiX Toolset
