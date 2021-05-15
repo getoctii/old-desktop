@@ -10,7 +10,7 @@ func main() {
 	defer w.Destroy()
 	w.SetTitle("Octii")
 	w.SetSize(1200, 800, webview.HintNone)
-	w.SetSize(1200, 800, webview.HintMin)
+	w.SetSize(800, 600, webview.HintMin)
 	w.Navigate("https://octii.chat")
 	w.Bind("inntronNotify", sendNotification)
 	w.Run()
