@@ -4,6 +4,7 @@ Derived from webview by Serge Zaitsev https://github.com/webview/webview/blob/ma
 Derived from Microsoft.Web.WebView2 by Microsoft Corporation https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.818.41/License
 Derived from toast by Jacob Marshall https://github.com/go-toast/toast/blob/master/LICENSE
 Derived from beeep by Milan Nikolic <gen2brain> https://github.com/gen2brain/beeep/blob/master/LICENSE
+Derived from Inno Setup by Jordan Russell and Martijn Laan https://github.com/jrsoftware/issrc/blob/main/license.txt
 
 Copyright (c) 2021 Innatical
 
