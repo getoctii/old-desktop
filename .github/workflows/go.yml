@@ -57,9 +57,12 @@ jobs:
 
     - name: Make Executable
       run: chmod +x Octii.app/Contents/MacOS/Octii.app
+      
+    - name: Put in folder
+      run: mkdir Octii && mv Octii.app Octii/
     
     - name: Create DMG
-      run: create-dmg octii.dmg Octii.app
+      run: create-dmg --app-drop-link 0 0 --sandbox-safe octii.dmg Octii
       
     - uses: actions/upload-artifact@v2
       name: Upload macOS x64 DMG
